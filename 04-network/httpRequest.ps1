@@ -31,7 +31,7 @@ $response.Content
 
 # Invoke with a proxy
 
-$response = Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/posts/1" -Proxy "134.174.149.59:3128"
+$response = Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/posts/1" -Proxy "http://134.174.149.59:3128"
 
 $response.Content
 
