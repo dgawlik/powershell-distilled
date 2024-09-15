@@ -60,5 +60,34 @@ gci -Path .\ -Recurse -Include *.txt -Exclude *.bak
 gci -Path .\ -Recurse | Sort-Object -Property Length
 
 
+# Get content of a file
 
+get-content -path .\filesystem.ps1
+gc -path .\filesystem.ps1
+type -path .\filesystem.ps1
+
+
+# Get content of a file as a string
+
+$str = get-content -path .\filesystem.ps1 -Raw
+echo $str.Replace("-Path", "-Destination")
+
+# Set content of a file
+set-content -path .\sample-processed.json -Value "Hello, World!"
+
+# Append content to a file
+add-content -path .\sample-processed.json -Value "Hello, World!"
+
+# Change file permissions
+
+$acl = get-acl -path .\sample-processed.json
+echo $acl.AccessToString
+
+$accessRule = new-object System.Security.AccessControl.FileSystemAccessRule(
+    "Everyone", "FullControl", "Allow")
+$acl.SetAccessRule($accessRule)
+
+set-acl -path .\sample-processed.json -AclObject $acl
+
+echo $(get-acl -path .\sample-processed.json).AccessToString
 
