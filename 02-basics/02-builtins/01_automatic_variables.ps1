@@ -1,6 +1,7 @@
 
 
-# This is how you get access to positional arguments 
+# This is how you get access to positional arguments
+# invoke this script with some parameters to see the output 
 echo $args
 
 # This is current user's home path
@@ -26,7 +27,3 @@ echo $PSCommandPath
 #Likewise this is root of exection context
 
 echo $PSScriptRoot
-
-# This contains stacktrace for last errror
-
-echo $StackTrace
